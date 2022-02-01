@@ -1,20 +1,31 @@
 package com.example.tp1exercice2helloworld;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        LinearLayout monLinearLayout = new LinearLayout(this) ;
+        setContentView(R.layout.activity_main);
+        ((Button) findViewById(R.id.monBouton)).
+                setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        afficherBoiteDeDialogue();                    }
+                });
+
+        /*LinearLayout monLinearLayout = new LinearLayout(this) ;
         monLinearLayout.setOrientation(LinearLayout.VERTICAL);
         TextView tv1 = new TextView(this);
         tv1.setText("Nom");
@@ -44,7 +55,36 @@ public class MainActivity extends AppCompatActivity {
         monLinearLayout.addView(tv5);
         monLinearLayout.addView(et5);
         monLinearLayout.addView(b);
-        setContentView(monLinearLayout);
+        setContentView(monLinearLayout);*/
 
+    }
+
+
+    public void afficherBoiteDeDialogue() {
+        DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onClickBoiteDeDialogue(dialog, which);
+            }
+        };
+
+        new AlertDialog.Builder(this)
+                .setTitle("Ma boite")
+                .setMessage("Voulais vous valider l'enregistrement ?")
+                .setPositiveButton("Confirmer", dialogListener)
+                .setNegativeButton("Annuler", dialogListener)
+                .show();
+    }
+
+    private void onClickBoiteDeDialogue(DialogInterface dialog, int which) {
+        switch (which) {
+            case AlertDialog.BUTTON_POSITIVE:
+                new AlertDialog.Builder(this).setMessage("Choix confirmé !").show();
+                break;
+
+            case AlertDialog.BUTTON_NEGATIVE:
+                new AlertDialog.Builder(this).setMessage("Choix annulé !").show();
+                break;
+        }
     }
 }

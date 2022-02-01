@@ -87,7 +87,7 @@
             android:inputType="phone" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/monBouton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:insetLeft="100dp"
