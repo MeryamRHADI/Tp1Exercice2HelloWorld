@@ -2,6 +2,8 @@ package com.example.tp1exercice2helloworld;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,12 +17,11 @@ public class ActivityEnfant extends AppCompatActivity {
         Intent intent = getIntent();
 
 
-
-           EditText nomEdit = (EditText) findViewById(R.id.editTextNomRet);
-            EditText prenomEdit = (EditText) findViewById(R.id.editTextPrenomRet);
-            EditText ageEdit = (EditText) findViewById(R.id.editTextAgeRet);
-            EditText competenceEdit = (EditText) findViewById(R.id.editTextCompRet);
-            EditText telEdit = (EditText) findViewById(R.id.editTextTelRet);
+        TextView nomEdit = (TextView) findViewById(R.id.textViewNomRet);
+        TextView prenomEdit = (TextView) findViewById(R.id.textView7);
+        TextView ageEdit = (TextView) findViewById(R.id.textViewAgeRet);
+        TextView competenceEdit = (TextView) findViewById(R.id.textViewCompRet);
+        TextView telEdit = (TextView) findViewById(R.id.textViewTelRet);
 
 
         Bundle extras = getIntent().getExtras();
@@ -31,19 +32,28 @@ public class ActivityEnfant extends AppCompatActivity {
             String competence = extras.getString("competence");
             String tel = extras.getString("tel");
 
-            nomEdit.setText(nom);
-            prenomEdit.setText(prenom);
-            ageEdit.setText(age);
-            competenceEdit.setText(competence);
-            telEdit.setText(tel);
+            nomEdit.setText("Bonjour " + nom + " " + prenom);
+            //  prenomEdit.setText("Salut "+prenom);
+            ageEdit.setText("Votre age est : " + age);
+            competenceEdit.setText("Votre compétence est : " + competence);
+            telEdit.setText("Votre numéro de tel est : " + tel);
 
         }
+        Button btnOk = (Button) findViewById(R.id.boutonOk);
 
-        }
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent intent = new Intent(ActivityEnfant.this, ActivityVide.class);
+                startActivity(intent);
+ }
+        });
 
+        Button btnRetour = (Button) findViewById(R.id.boutonRetour);
 
+        btnRetour.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                finish();        }
+        });
+    }
 
-
-
-   // }
-}
+    }

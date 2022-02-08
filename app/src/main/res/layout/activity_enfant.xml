@@ -22,13 +22,6 @@
             android:text="Nom récupéré"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextNomRet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            />
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
@@ -36,13 +29,6 @@
             android:text="Prenom récupéré"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextPrenomRet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            />
         <TextView
             android:id="@+id/textViewAgeRet"
             android:layout_width="match_parent"
@@ -51,25 +37,12 @@
             android:textSize="20sp" />
 
 
-        <EditText
-            android:id="@+id/editTextAgeRet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date" />
         <TextView
             android:id="@+id/textViewCompRet"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Domaine de de competence recupéré"
             android:textSize="20sp" />
-        <EditText
-            android:id="@+id/editTextCompRet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            />
 
         <TextView
             android:id="@+id/textViewTelRet"
@@ -78,12 +51,23 @@
             android:text="Numero de telephone récupéré"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextTelRet"
+        <Button
+            android:id="@+id/boutonOk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="phone" />
+            android:insetLeft="100dp"
+            android:insetRight="100dp"
+            android:padding="15dp"
+            android:text="OK" />
+        <Button
+            android:id="@+id/boutonRetour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetLeft="100dp"
+            android:insetRight="100dp"
+            android:padding="15dp"
+            android:text="Retour" />
+
 
 
 
