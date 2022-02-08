@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,17 +14,53 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int INTENT_CALL_ID=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((Button) findViewById(R.id.monBouton)).
+     /*   ((Button) findViewById(R.id.monBouton)).
                 setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         afficherBoiteDeDialogue();                    }
+                });*/
+
+
+        //associer les variable EditText de fichier xml
+        EditText nomEdit = (EditText) findViewById(R.id.editTextTextPersonName6);
+        EditText prenomEdit = (EditText) findViewById(R.id.editTextTextPersonName7);
+        EditText ageEdit = (EditText) findViewById(R.id.editTextAge2);
+        EditText competenceEdit = (EditText) findViewById(R.id.editTextText);
+        EditText telEdit = (EditText) findViewById(R.id.editTextPhone);
+
+
+        Button btnBasculer = (Button) findViewById(R.id.monBouton);
+
+        btnBasculer
+                .setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent1 = new Intent (MainActivity.this, ActivityEnfant.class);
+
+                        String nom = nomEdit.getText().toString();
+                        String prenom = prenomEdit.getText().toString();
+                        String age = ageEdit.getText().toString();
+                        String competence = competenceEdit.getText().toString();
+                        String tel = telEdit.getText().toString();
+
+                        intent1.putExtra("nom",nom);
+                        intent1.putExtra("prenom",prenom);
+                        intent1.putExtra("age",age);
+                        intent1.putExtra("competence",competence);
+                        intent1.putExtra("tel",tel);
+
+                        // Launch the activity
+                        startActivity(intent1);
+                    }
                 });
+
+
 
         /*LinearLayout monLinearLayout = new LinearLayout(this) ;
         monLinearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -75,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("Annuler", dialogListener)
                 .show();
     }
-
     private void onClickBoiteDeDialogue(DialogInterface dialog, int which) {
         switch (which) {
             case AlertDialog.BUTTON_POSITIVE:
