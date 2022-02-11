@@ -18,7 +18,6 @@ public class ActivityEnfant extends AppCompatActivity {
 
 
         TextView nomEdit = (TextView) findViewById(R.id.textViewNomRet);
-        TextView prenomEdit = (TextView) findViewById(R.id.textView7);
         TextView ageEdit = (TextView) findViewById(R.id.textViewAgeRet);
         TextView competenceEdit = (TextView) findViewById(R.id.textViewCompRet);
         TextView telEdit = (TextView) findViewById(R.id.textViewTelRet);
@@ -44,6 +43,9 @@ public class ActivityEnfant extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent(ActivityEnfant.this, ActivityVide.class);
+                String num =telEdit.getText().toString();
+                intent.putExtra("num",num);
+
                 startActivity(intent);
  }
         });
